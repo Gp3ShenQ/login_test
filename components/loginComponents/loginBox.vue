@@ -1,7 +1,7 @@
 <template>
   <div class="top-1/2 left-1/2 z-10 fixed w-[500px] -translate-x-1/2 -translate-y-1/2 -translate-y-1/2 transform">
     <div class="flex flex-col items-center gap-5 bg-[url('/login/loginBox.png')] bg-cover bg-center px-15 pt-35 pb-15 w-full w-full max-w-[500px] h-full">
-      <div class="flex justify-center gap-10">
+      <div class="flex justify-center gap-5 mb-5">
         <div class="flex flex-col gap-5">
           <div class="w-[100px] max-h-[40px]">
             <img src="public/login/user_text.png" alt="" />

@@ -64,9 +64,14 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useCommonStore } from '@/store/commonStore'
 
 import Parallax from 'parallax-js'
 import loginBox from '~/components/loginComponents/loginBox.vue'
+
+const commonStore = useCommonStore()
+const { isLogin } = storeToRefs(commonStore)
 
 const userAccount = ref('')
 const userPassword = ref('')
@@ -76,6 +81,7 @@ const userAction = (target: string) => {
     console.log('login')
     console.log('userAccount', userAccount.value)
     console.log('userPassword', userPassword.value)
+    isLogin.value = true
   }
   if (target === 'register') {
     console.log('register')
