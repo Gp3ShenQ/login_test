@@ -1,5 +1,5 @@
 <template>
-  <loginBox v-model:userAccount="userAccount" v-model:userPassword="userPassword" @login="userAction('login')" @register="userAction('register')" />
+  <loginBox v-model:userAccount="userAccount" v-model:userPassword="userPassword" @login="userAction('login')" @register="userAction('register')" @fix="userAction('fix')" />
   <div id="scene" class="w-full h-full overflow-hidden">
     <div class="relative flex justify-center items-center pt-100 pr-150 max-[1200px]:pr-100 max-[900px]:pr-70 min-w-[150%] min-h-[100%]" data-depth="0.6">
       <div class="top-1/2 left-[33%] z-[-1] absolute w-full overflow-hidden -translate-x-1/2 -translate-y-1/2 transform">
@@ -68,6 +68,7 @@ import { useCommonStore } from '@/store/commonStore'
 import Parallax from 'parallax-js'
 import loginBox from '~/components/loginComponents/loginBox.vue'
 
+const router = useRouter()
 const commonStore = useCommonStore()
 const { isLogin } = storeToRefs(commonStore)
 
@@ -80,9 +81,11 @@ const userAction = (target: string) => {
     console.log('userAccount', userAccount.value)
     console.log('userPassword', userPassword.value)
     isLogin.value = true
+    router.push('fixView')
   }
   if (target === 'register') {
     console.log('register')
+    router.push('fixView')
   }
 }
 

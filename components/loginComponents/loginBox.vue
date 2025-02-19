@@ -24,7 +24,7 @@
       </div>
       <div class="flex justify-center gap-20 h-[43px]">
         <!-- <div class="w-full max-w-[100px]" @click="action('login')"> -->
-        <div class="w-full max-w-[100px]" @mousedown="loginIsActive = true" @mouseup="loginIsActive = false">
+        <div class="w-full max-w-[100px]" @mousedown="isActive('login')" @mouseup="notActive('login')">
           <template v-if="!loginIsActive">
             <div class="w-full max-w-[100px]  h-full cursor-pointer">
               <img src="public/login/login_button.png" alt="" />
@@ -37,7 +37,7 @@
           </template>
         </div>
         <!-- <div class="w-full max-w-[100px]" @click="action('register') " > -->
-        <div class="w-full max-w-[100px]" @mousedown="registerIsActive = true" @mouseup="registerIsActive = false">
+        <div class="w-full max-w-[100px]" @mousedown="isActive('register')" @mouseup="notActive('register')">
           <template v-if="!registerIsActive">
             <div class="w-full max-w-[100px] h-full  cursor-pointer">
               <img class="" src="public/login/register_button.png" alt="" />
@@ -57,6 +57,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const router = useRouter()
+
 const userAccount = defineModel('userAccount')
 const userPassword = defineModel('userPassword')
 
@@ -70,11 +72,22 @@ const emit = defineEmits<Emit>()
 const loginIsActive = ref(false)
 const registerIsActive = ref(false)
 
-const action = (target: string) => {
+const isActive = (target: string) => {
   if (target === 'login') {
+    loginIsActive.value = true
+  }
+  if (target === 'register') {
+    registerIsActive.value = true
+  }
+}
+
+const notActive = (target: string) => {
+  if (target === 'login') {
+    loginIsActive.value = false
     emit('login')
   }
   if (target === 'register') {
+    registerIsActive.value = false
     emit('register')
   }
 }
