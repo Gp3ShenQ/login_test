@@ -1,6 +1,6 @@
 <template>
   <div class="top-1/2 left-1/2 z-10 fixed w-[500px] -translate-x-1/2 -translate-y-1/2 -translate-y-1/2 transform">
-    <div class="flex flex-col items-center gap-5 bg-[url('/login/loginBox.png')] bg-cover bg-center px-15 pt-35 pb-15 w-full w-full max-w-[500px] h-full">
+    <div class="flex flex-col items-center gap-5 bg-[url('/login/loginBox.png')] bg-cover bg-center px-15 pt-35 pb-13 w-full w-full max-w-[500px] h-full">
       <div class="flex justify-center gap-5 mb-5">
         <div class="flex flex-col gap-5">
           <div class="w-[100px] max-h-[40px]">
@@ -20,11 +20,31 @@
         </div>
       </div>
       <div class="flex justify-center gap-20">
-        <div class="w-full max-w-[100px]" @click="action('login')">
-          <img class="h-full cursor-pointer" src="public/login/login_button.png" alt="" />
+        <!-- <div class="w-full max-w-[100px]" @click="action('login')"> -->
+        <div class="w-full max-w-[100px]" @mousedown="loginIsActive = true" @mouseup="loginIsActive = false">
+          <template v-if="!loginIsActive">
+            <div class="w-full max-w-[100px] h-[43px] h-full cursor-pointer">
+              <img src="public/login/login_button.png" alt="" />
+            </div>
+          </template>
+          <template v-if="loginIsActive">
+            <div class="w-full max-w-[100px] h-[43px] cursor-pointer">
+              <img src="public/login/login_button_active.png" alt="" />
+            </div>
+          </template>
         </div>
-        <div class="w-full max-w-[100px]" @click="action('register')">
-          <img class="h-full cursor-pointer" src="public/login/register_button.png" alt="" />
+        <!-- <div class="w-full max-w-[100px]" @click="action('register') " > -->
+        <div class="w-full max-w-[100px]" @mousedown="registerIsActive = true" @mouseup="registerIsActive = false">
+          <template v-if="!registerIsActive">
+            <div class="w-full max-w-[100px] h-full max-h-[43px] cursor-pointer">
+              <img class="" src="public/login/register_button.png" alt="" />
+            </div>
+          </template>
+          <template v-if="registerIsActive">
+            <div class="w-full max-w-[100px] h-full max-h-[43px]cursor-pointer">
+              <img class="" src="public/login/register_button_active.png" alt="" />
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -32,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import {} from 'vue'
+import { ref } from 'vue'
 
 const userAccount = defineModel('userAccount')
 const userPassword = defineModel('userPassword')
@@ -43,6 +63,9 @@ type Emit = {
 }
 
 const emit = defineEmits<Emit>()
+
+const loginIsActive = ref(false)
+const registerIsActive = ref(false)
 
 const action = (target: string) => {
   if (target === 'login') {
