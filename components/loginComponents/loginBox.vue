@@ -3,9 +3,8 @@
     <div class=" absolute top-0 left-0 z-[-1]">
       <img src="public/login/loginBox.png" alt="" />
     </div>
-    <!-- <div class="flex flex-col items-center gap-5 bg-[url('/login/loginBox.png')] bg-cover bg-center px-15 pt-35 pb-13 w-full w-full max-w-[500px] h-full"> -->
     <div class="w-full h-full flex  flex-col px-15  justify-center mt-5 max-[450px]:justify-start max-[450px]:mt-25 max-[450px]:px-10">
-      <div class="flex  gap-5 mb-5">
+      <div class="flex  gap-5 my-10 max-[450px]:my-2">
         <div class="flex flex-col gap-5  max-[450px]:gap-2">
           <div class="w-[100px] max-h-[40px] max-[450px]:w-[80px]">
             <img src="public/login/user_text.png" alt="" />
@@ -53,7 +52,6 @@
       </div>
     </div>
   </div>
-  <!-- </div> -->
 </template>
 
 <script setup lang="ts">

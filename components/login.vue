@@ -1,7 +1,7 @@
 <template>
   <loginBox v-model:userAccount="userAccount" v-model:userPassword="userPassword" @login="userAction('login')" @register="userAction('register')" />
   <div id="scene" class="w-full h-full overflow-hidden">
-    <div class="relative flex justify-center items-center pt-100 pr-150 min-w-[150%] min-h-[100%]" data-depth="0.6">
+    <div class="relative flex justify-center items-center pt-100 pr-150 max-[1200px]:pr-100 max-[900px]:pr-70 min-w-[150%] min-h-[100%]" data-depth="0.6">
       <div class="top-1/2 left-[33%] z-[-1] absolute w-full overflow-hidden -translate-x-1/2 -translate-y-1/2 transform">
         <img class="min-w-[150vw] min-h-[150vh]" src="/login/background_street.png" alt="" />
       </div>
@@ -12,7 +12,7 @@
               <img src="/login/people1.png" alt="" />
             </div>
           </div>
-          <div class="pb-100 max-[1300px]:pl-20">
+          <div class="pb-100 max-[1300px]:pl-20 max-[600px]:hidden">
             <div class="w-full max-w-[100px]">
               <img src="/login/people3.png" alt="" />
             </div>
@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <div class="flex items-center h-full">
+        <div class="flex items-center h-full max-[600px]:mt-30">
           <div class="w-full max-w-[120px] h-full max-[1300px]:hidden">
             <img src="/login/people4.png" alt="" />
           </div>
@@ -35,7 +35,7 @@
             </div>
           </div>
 
-          <div class="pb-100 pr-50">
+          <div class="pb-100 pr-50 max-[600px]:hidden">
             <div class="w-full max-w-[90px]">
               <img src="/login/people5.png" alt="" />
             </div>
@@ -45,13 +45,13 @@
           </div>
         </div>
 
-        <div class="flex flex-col justify-start items-start h-full">
+        <div class="flex flex-col justify-start items-start h-full max-[800px]:hidden">
           <div class="flex items-start pb-0 h-full">
             <div class="w-full max-w-[100px] animated2 max-[1300px]:hidden">
               <img src="/login/people8.png" alt="" />
             </div>
           </div>
-          <div class="w-full max-w-[250px]">
+          <div class="w-full max-w-[250px] max-[1100px]:hidden">
             <img src="/login/people9.png" alt="" />
           </div>
         </div>
