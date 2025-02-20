@@ -1,18 +1,18 @@
 <template>
   <loginBox v-model:userAccount="userAccount" v-model:userPassword="userPassword" @login="userAction('login')" @register="userAction('register')" @fix="userAction('fix')" />
   <div id="scene" class="w-full h-full overflow-hidden">
-    <div class="relative flex justify-center items-center pt-100 pr-150 max-[1200px]:pr-100 max-[900px]:pr-70 min-w-[150%] min-h-[100%]" data-depth="0.6">
-      <div class="top-1/2 left-[33%] z-[-1] absolute w-full overflow-hidden -translate-x-1/2 -translate-y-1/2 transform">
-        <img class="min-w-[150vw] min-h-[150vh]" src="/login/background_street.png" alt="" />
+    <div class="relative flex justify-center items-center pt-100 pr-150 max-[1200px]:pr-100 max-[900px]:pr-70 min-[2200px]:pr-190 min-[2500px]:pr-290 min-[1600px]:pr-200 min-w-[150%] min-h-[100%]" data-depth="0.6">
+      <div class="top-0 left-0 z-[-1] absolute w-full transform">
+        <img class="-top-50 -left-80 absolute min-w-[1800px] min-h-[150vh] object-center" src="/login/background_street.png" alt="" />
       </div>
       <div class="flex justify-center items-center gap-20 h-full">
         <div class="flex items-center h-full">
-          <div class="flex items-end -pl-20 h-full max-[1300px]:hidden">
+          <div class="max-[1300px]:hidden flex items-end -pl-20 h-full">
             <div class="w-full max-w-[180px] animated1" data-depth="0.5">
               <img src="/login/people1.png" alt="" />
             </div>
           </div>
-          <div class="pb-100 max-[1300px]:pl-20 max-[600px]:hidden">
+          <div class="max-[600px]:hidden pb-100 max-[1300px]:pl-20">
             <div class="w-full max-w-[100px]">
               <img src="/login/people3.png" alt="" />
             </div>
@@ -22,8 +22,8 @@
           </div>
         </div>
 
-        <div class="flex items-center h-full max-[600px]:mt-30">
-          <div class="w-full max-w-[120px] h-full max-[1300px]:hidden">
+        <div class="flex items-center max-[600px]:mt-30 h-full">
+          <div class="max-[1300px]:hidden w-full max-w-[120px] h-full">
             <img src="/login/people4.png" alt="" />
           </div>
           <div class="flex flex-col h-full">
@@ -35,7 +35,7 @@
             </div>
           </div>
 
-          <div class="pb-100 pr-50 max-[600px]:hidden">
+          <div class="max-[600px]:hidden pr-50 pb-100">
             <div class="w-full max-w-[90px]">
               <img src="/login/people5.png" alt="" />
             </div>
@@ -45,13 +45,13 @@
           </div>
         </div>
 
-        <div class="flex flex-col justify-start items-start h-full max-[800px]:hidden">
+        <div class="max-[800px]:hidden flex flex-col justify-start items-start h-full">
           <div class="flex items-start pb-0 h-full">
-            <div class="w-full max-w-[100px] animated2 max-[1300px]:hidden">
+            <div class="max-[1300px]:hidden w-full max-w-[100px] animated2">
               <img src="/login/people8.png" alt="" />
             </div>
           </div>
-          <div class="w-full max-w-[250px] max-[1100px]:hidden">
+          <div class="max-[1100px]:hidden w-full max-w-[250px]">
             <img src="/login/people9.png" alt="" />
           </div>
         </div>
