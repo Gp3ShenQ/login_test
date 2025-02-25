@@ -17,6 +17,7 @@
     "parallax-js": "^3.1.0",
     "pinia": "^3.0.1",
     "set-value": "^4.1.0",
+    "sweetalert2": "^11.17.2",
     "vue": "latest",
     "vue-router": "latest"
   },

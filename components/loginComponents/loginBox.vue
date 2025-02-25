@@ -1,24 +1,24 @@
 <template>
-  <div class="top-[50%] left-1/2 z-10 fixed w-[500px] -translate-x-1/2 -translate-y-1/2 -translate-y-1/2 max-h-[378px] h-full transform max-w-[500px] w-full ">
-    <div class=" absolute top-0 left-0 z-[-1]">
+  <div class="top-[50%] left-1/2 z-10 fixed w-[500px] w-full max-w-[500px] h-full max-h-[378px] -translate-x-1/2 -translate-y-1/2 -translate-y-1/2 transform">
+    <div class="top-0 left-0 z-[-1] absolute">
       <img src="public/login/loginBox.png" alt="" />
     </div>
-    <div class="w-full h-full flex  flex-col px-15  justify-center mt-5 max-[450px]:justify-start max-[450px]:mt-25 max-[450px]:px-10">
-      <div class="flex  gap-5 my-10 max-[450px]:my-2">
-        <div class="flex flex-col gap-5  max-[450px]:gap-2">
-          <div class="w-[100px] max-h-[40px] max-[450px]:w-[80px]">
+    <div class="flex flex-col justify-center max-[450px]:justify-start mt-5 max-[450px]:mt-25 px-15 max-[450px]:px-10 w-full h-full">
+      <div class="flex gap-5 my-10 max-[450px]:my-2">
+        <div class="flex flex-col gap-5 max-[450px]:gap-2">
+          <div class="w-[100px] max-[450px]:w-[80px] max-h-[40px]">
             <img src="public/login/user_text.png" alt="" />
           </div>
-          <div class="w-[150px] max-h-[40px] max-[450px]:w-[100px] ">
+          <div class="w-[150px] max-[450px]:w-[100px] max-h-[40px]">
             <img src="public/login/password_text.png" alt="" />
           </div>
         </div>
-        <div class="flex flex-col gap-10 max-[450px]:gap-5 items-center w-full h-full">
+        <div class="flex flex-col items-center gap-9 max-[450px]:gap-5 mt-2 w-full h-full">
           <div>
-            <input class="border-2 border-yellow-400 rounded-md" type="text" v-model="userAccount" />
+            <input class="px-2 py-px border-2 border-yellow-400 rounded-md" type="text" v-model="userAccount" />
           </div>
           <div>
-            <input class="border-2 border-yellow-400 rounded-md" type="text" v-model="userPassword" />
+            <input class="px-2 border-2 border-yellow-400 rounded-md" type="password" v-model="userPassword" />
           </div>
         </div>
       </div>
@@ -26,12 +26,12 @@
         <!-- <div class="w-full max-w-[100px]" @click="action('login')"> -->
         <div class="w-full max-w-[100px]" @mousedown="isActive('login')" @mouseup="notActive('login')">
           <template v-if="!loginIsActive">
-            <div class="w-full max-w-[100px]  h-full cursor-pointer">
+            <div class="w-full max-w-[100px] h-full cursor-pointer">
               <img src="public/login/login_button.png" alt="" />
             </div>
           </template>
           <template v-if="loginIsActive">
-            <div class="w-full max-w-[100px]  cursor-pointer">
+            <div class="w-full max-w-[100px] cursor-pointer">
               <img src="public/login/login_button_active.png" alt="" />
             </div>
           </template>
@@ -39,7 +39,7 @@
         <!-- <div class="w-full max-w-[100px]" @click="action('register') " > -->
         <div class="w-full max-w-[100px]" @mousedown="isActive('register')" @mouseup="notActive('register')">
           <template v-if="!registerIsActive">
-            <div class="w-full max-w-[100px] h-full  cursor-pointer">
+            <div class="w-full max-w-[100px] h-full cursor-pointer">
               <img class="" src="public/login/register_button.png" alt="" />
             </div>
           </template>
@@ -55,8 +55,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const router = useRouter()
 
 const userAccount = defineModel('userAccount')

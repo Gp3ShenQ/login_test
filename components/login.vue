@@ -61,14 +61,16 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useCommonStore } from '@/store/commonStore'
+import loginApiStore from '@/utils/api/loginApiStore'
 
+import Swal from 'sweetalert2'
 import Parallax from 'parallax-js'
 import loginBox from '~/components/loginComponents/loginBox.vue'
 
 const router = useRouter()
+const { func_loginPost } = loginApiStore()
 const commonStore = useCommonStore()
 const { isLogin } = storeToRefs(commonStore)
 
@@ -77,29 +79,48 @@ const userPassword = ref('')
 
 const userAction = (target: string) => {
   if (target === 'login') {
-    console.log('login')
-    console.log('userAccount', userAccount.value)
-    console.log('userPassword', userPassword.value)
-    isLogin.value = true
-    router.push('fixView')
+    // isLogin.value = true
+    // router.push('fixView')
+    login()
   }
   if (target === 'register') {
-    console.log('register')
     router.push('fixView')
   }
 }
 
-onMounted(() => {
+const initParallax = () => {
   const scene = document.getElementById('scene')
   if (scene) {
     const parallaxInstance = new Parallax(scene, {
       relativeInput: true,
     })
-
     parallaxInstance.friction(0.2, 0.2)
   } else {
     console.error('Element with ID "scene" not found.')
   }
+}
+
+const login = async () => {
+  const _params = {
+    account: userAccount.value,
+    password: userPassword.value,
+  }
+
+  const _result = await func_loginPost(_params)
+  console.log('result', _result)
+  if (_result.statusCode == 200) {
+    Swal.fire({
+      icon: 'success',
+      title: '登入成功',
+      showConfirmButton: true,
+    }).then(() => {
+      // isLogin.value = true
+    })
+  }
+}
+
+onMounted(() => {
+  initParallax()
 })
 </script>
 
