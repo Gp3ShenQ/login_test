@@ -64,15 +64,17 @@
 import { storeToRefs } from 'pinia'
 import { useCommonStore } from '@/store/commonStore'
 import loginApiStore from '@/utils/api/loginApiStore'
+import registerApiStore from '@/utils/api/registerApiStore'
 
 import Swal from 'sweetalert2'
 import Parallax from 'parallax-js'
 import loginBox from '~/components/loginComponents/loginBox.vue'
 
 const router = useRouter()
-const { func_loginPost } = loginApiStore()
 const commonStore = useCommonStore()
+const { func_loginPost } = loginApiStore()
 const { isLogin } = storeToRefs(commonStore)
+const { func_RegisterPost } = registerApiStore()
 
 const userAccount = ref('')
 const userPassword = ref('')
@@ -84,7 +86,8 @@ const userAction = (target: string) => {
     login()
   }
   if (target === 'register') {
-    router.push('fixView')
+    // router.push('fixView')
+    register()
   }
 }
 
@@ -115,6 +118,42 @@ const login = async () => {
       showConfirmButton: true,
     }).then(() => {
       // isLogin.value = true
+      userAccount.value = ''
+      userPassword.value = ''
+    })
+  } else if (_result.statusCode == 401) {
+    Swal.fire({
+      icon: 'error',
+      title: '帳號或密碼錯誤',
+      showConfirmButton: true,
+    })
+  }
+}
+const register = async () => {
+  const _params = {
+    account: userAccount.value,
+    email: '',
+    password: userPassword.value,
+  }
+
+  const _result = await func_RegisterPost(_params)
+  console.log('result', _result)
+  if (_result.statusCode == 200) {
+    Swal.fire({
+      icon: 'success',
+      title: '註冊成功',
+      text: '請重新登入',
+      showConfirmButton: true,
+    }).then(() => {
+      // isLogin.value = true
+      userAccount.value = ''
+      userPassword.value = ''
+    })
+  } else if (_result.statusCode == 401) {
+    Swal.fire({
+      icon: 'error',
+      title: '帳號或密碼錯誤',
+      showConfirmButton: true,
     })
   }
 }
