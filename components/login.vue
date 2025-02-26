@@ -3,7 +3,7 @@
   <div id="scene" class="w-full h-full overflow-hidden">
     <div class="relative flex justify-center items-center pt-100 pr-150 max-[1200px]:pr-100 max-[900px]:pr-70 min-[2200px]:pr-190 min-[2500px]:pr-290 min-[1600px]:pr-200 min-w-[150%] min-h-[100%]" data-depth="0.6">
       <div class="top-0 left-0 z-[-1] absolute w-full transform">
-        <img class="-top-50 -left-80 absolute min-w-[1800px] min-h-[150vh] object-center" src="/login/background_street.png" alt="" />
+        <img class="-top-50 -left-80 absolute min-w-[1800px] min-h-[160vh] object-center" src="/login/background_street.png" alt="" />
       </div>
       <div class="flex justify-center items-center gap-20 h-full">
         <div class="flex items-center h-full">
