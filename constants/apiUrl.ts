@@ -1,23 +1,26 @@
-const baseUrl = process.env.NODE_ENV === 'development' ? '' : process.env.BASE_URL
+import { useRuntimeConfig } from '#app'
 
 const apiPaths = {
-  RegisterPost: baseUrl +'/api/register/registerPost',
-  RegisterDelete:baseUrl + '/api/register/registerDelete',
-  CheckRegisterEmailGet:baseUrl + '/api/register/checkRegisterEmailGet',
-  CheckRegisterAccountGet:baseUrl + '/api/register/checkRegisterAccountGet',
+  RegisterPost: '/api/register/registerPost',
+  RegisterDelete: '/api/register/registerDelete',
+  CheckRegisterEmailGet: '/api/register/checkRegisterEmailGet',
+  CheckRegisterAccountGet: '/api/register/checkRegisterAccountGet',
 
-  LoginPost:baseUrl + '/api/login/loginPost',
+  LoginPost: '/api/login/loginPost',
 
-  AddUserPost:baseUrl + '/api/user/addUserPost',
-  CheckUserAllGet:baseUrl + '/api/user/checkUserAllGet',
-  DeleteUserDelete:baseUrl + '/api/user/deleteUserDelete',
-  DeleteUserAllDelete:baseUrl + '/api/user/deleteUserAllDelete',
-  CheckUserPersonalPost:baseUrl + '/api/user/CheckUserPersonalPost',
+  AddUserPost: '/api/user/addUserPost',
+  CheckUserAllGet: '/api/user/checkUserAllGet',
+  DeleteUserDelete: '/api/user/deleteUserDelete',
+  DeleteUserAllDelete: '/api/user/deleteUserAllDelete',
+  CheckUserPersonalPost: '/api/user/CheckUserPersonalPost',
 }
 
-
 const generateUrl = (path: keyof typeof apiPaths) => {
-  return process.env.NODE_ENV === 'development' ? apiPaths[path] : process.env.BASE_URL + apiPaths[path]
+  const config = useRuntimeConfig()
+  
+  return process.env.NODE_ENV === 'development' 
+    ? apiPaths[path] 
+    : config.public.API_BASE_URL + apiPaths[path]
 }
 
 export { generateUrl, apiPaths }
