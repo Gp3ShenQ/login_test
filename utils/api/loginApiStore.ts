@@ -1,4 +1,4 @@
-import { apiPaths } from '@/constants/apiUrl'
+import { generateUrl } from '@/constants/apiUrl'
 
 export default function loginApiStore() {
   type LoginPost = {
@@ -8,10 +8,9 @@ export default function loginApiStore() {
   }
 
   const func_loginPost = async (params: LoginPost) => {
-    const _apiUrl = apiPaths.LoginPost
     const _params = params
     try {
-      const _result = await $fetch(_apiUrl, {
+      const _result = await $fetch(generateUrl('LoginPost'), {
         method: 'POST',
         body: _params,
         headers: {
