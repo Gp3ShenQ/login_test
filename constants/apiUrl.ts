@@ -15,4 +15,9 @@ const apiPaths = {
   CheckUserPersonalPost:baseUrl + '/api/user/CheckUserPersonalPost',
 }
 
-export { apiPaths }
+
+const generateUrl = (path: keyof typeof apiPaths) => {
+  return process.env.NODE_ENV === 'development' ? apiPaths[path] : process.env.BASE_URL + apiPaths[path]
+}
+
+export { generateUrl, apiPaths }
