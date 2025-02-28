@@ -65,6 +65,7 @@ import { storeToRefs } from 'pinia'
 import { useCommonStore } from '@/store/commonStore'
 import loginApiStore from '@/utils/api/loginApiStore'
 import registerApiStore from '@/utils/api/registerApiStore'
+import { func_setLocalStorageLocale, func_getLocalStorageLocale } from '@/utils/useLocalStorage'
 
 import Swal from 'sweetalert2'
 import Parallax from 'parallax-js'
@@ -120,6 +121,7 @@ const login = async () => {
       // isLogin.value = true
       userAccount.value = ''
       userPassword.value = ''
+      func_setLocalStorageLocale(_result.token)
     })
   } else if (_result.statusCode == 401) {
     Swal.fire({
@@ -160,6 +162,8 @@ const register = async () => {
 
 onMounted(() => {
   initParallax()
+  const nnn = func_getLocalStorageLocale()
+  console.log('nnn', nnn)
 })
 </script>
 

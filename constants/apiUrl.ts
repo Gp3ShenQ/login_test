@@ -1,16 +1,18 @@
+const baseUrl = process.env.NODE_ENV === 'development' ? '' : process.env.BASE_URL
+
 const apiPaths = {
-  RegisterPost: '/api/register/registerPost',
-  RegisterDelete: '/api/register/registerDelete',
-  CheckRegisterEmailGet: '/api/register/checkRegisterEmailGet',
-  CheckRegisterAccountGet: '/api/register/checkRegisterAccountGet',
+  RegisterPost: baseUrl +'/api/register/registerPost',
+  RegisterDelete:baseUrl + '/api/register/registerDelete',
+  CheckRegisterEmailGet:baseUrl + '/api/register/checkRegisterEmailGet',
+  CheckRegisterAccountGet:baseUrl + '/api/register/checkRegisterAccountGet',
 
-  LoginPost: '/api/login/loginPost',
+  LoginPost:baseUrl + '/api/login/loginPost',
 
-  AddUserPost: '/api/user/addUserPost',
-  CheckUserAllGet: '/api/user/checkUserAllGet',
-  DeleteUserDelete: '/api/user/deleteUserDelete',
-  DeleteUserAllDelete: '/api/user/deleteUserAllDelete',
-  CheckUserPersonalPost: '/api/user/CheckUserPersonalPost',
+  AddUserPost:baseUrl + '/api/user/addUserPost',
+  CheckUserAllGet:baseUrl + '/api/user/checkUserAllGet',
+  DeleteUserDelete:baseUrl + '/api/user/deleteUserDelete',
+  DeleteUserAllDelete:baseUrl + '/api/user/deleteUserAllDelete',
+  CheckUserPersonalPost:baseUrl + '/api/user/CheckUserPersonalPost',
 }
 
 export { apiPaths }

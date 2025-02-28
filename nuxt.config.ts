@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [tailwindcss()],
-    server: {
+    ...(process.env.NODE_ENV === 'development' ? {
+      server: {
       proxy: {
         '/api': {
           // API 路由
@@ -14,6 +15,7 @@ export default defineNuxtConfig({
           changeOrigin: true,
         },
       },
-    },
+    }}:{})
+    
   },
 })
