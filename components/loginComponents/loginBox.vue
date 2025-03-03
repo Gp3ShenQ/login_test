@@ -36,7 +36,6 @@
             </div>
           </template>
         </div>
-        <!-- <div class="w-full max-w-[100px]" @click="action('register') " > -->
         <div class="w-full max-w-[100px]" @mousedown="isActive('register')" @mouseup="notActive('register')">
           <template v-if="!registerIsActive">
             <div class="w-full max-w-[100px] h-full cursor-pointer">

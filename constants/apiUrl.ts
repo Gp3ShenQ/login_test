@@ -7,6 +7,7 @@ const apiPaths = {
   CheckRegisterAccountGet: '/api/register/checkRegisterAccountGet',
 
   LoginPost: '/api/login/loginPost',
+  LoginTokenCheckPost: '/api/login/loginTokenCheckPost',
 
   AddUserPost: '/api/user/addUserPost',
   CheckUserAllGet: '/api/user/checkUserAllGet',
